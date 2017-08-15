@@ -1,0 +1,31 @@
+---
+title: "Pet model beetles"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+```{r Simulate}
+### Run ####
+library(pets)
+beetles_simulate(n_steps=20, world_size=100, dispPar=20, plot_flag=FALSE, col_forest=c("brown", "green", "darkgreen"), col_beetle=c("white", "blue"),  regrowth=1, sleep=0.3, K=10, young_forest = 3, beetle_reproduction=0.7, write_out = TRUE)
+
+### Read in simulation results from folder "temp"
+res <- load_results()
+```
+Create a GIF file to visulize the simulation output.
+
+```{r}
+### Create GIF
+library(animation)
+
+ani.options(ani.width=3*480, ani.height=480) 
+saveGIF(beetles_simulate(n_steps=40, world_size=150, dispPar=20, plot_flag=TRUE, col_forest=c("brown", "green", "darkgreen"), col_beetle=c("white", "blue"),  regrowth=1, sleep=0, K=10, young_forest = 3), movie.name = "vignettes/animation.gif", img.name = "Rplot", convert = "convert", clean = TRUE)
+
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
