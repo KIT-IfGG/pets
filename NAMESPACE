@@ -2,3 +2,7 @@ exportPattern("^[[:alpha:]]+")
 
 ### beetles
 #importFrom("spdep", ?)
+
+### RIP
+importFrom(spdep, cell2nb)
+
