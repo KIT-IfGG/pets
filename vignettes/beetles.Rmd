@@ -1,31 +1,65 @@
 ---
 title: "Pet model beetles"
-output: html_notebook
+output:
+  html_document: default
+  html_notebook: default
+  pdf_document: default
+  word_document: default
 ---
 
-This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+# Model description
+## The system
+This is a pet model on a bark beetle population feeding on trees. It could be a bark beetly proliferation with on beetle generation each year and forest regrowht. Only trees older than a certain age are susceptible for bark beetles, thus yound forest is immune.
 
-Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+## States
+The world is represented as a grid of cells with possible status: forest, yound forest and no-forest. For each cell the number of beetles is recorded.
 
-```{r Simulate}
-### Run ####
+## Processes
+The system is reduced to the following processes:
+
+- Initialization: Forest cover, beetles in the center
+- Beetle dispersal: Exponential dispersal kernel
+- Beetle reproduction: 
+- Beetle death: just at dispersal; full cells, non-eadable forest cells (young forest, empty cells, outside of the world)
+- Forest death by being eaten
+- Forest regrowth
+
+# Run the model
+
+To run the model some function arguments need to be specified. The number of time stept to be simulated (n_time) can be interpreted number of years to be simulated. 
+
+```{r Simulate, eval=TRUE, echo=TRUE, include=TRUE, results='hide', fig.keep='last', fig.show='asis', strip.white=TRUE, fig.align='center', fig.width=100, fig.height=40}
 library(pets)
-beetles_simulate(n_steps=20, world_size=100, dispPar=20, plot_flag=FALSE, col_forest=c("brown", "green", "darkgreen"), col_beetle=c("white", "blue"),  regrowth=1, sleep=0.3, K=10, young_forest = 3, beetle_reproduction=0.7, write_out = TRUE)
+beetles_simulate(n_steps=10, world_size=100, dispPar=20, plot_flag=TRUE, col_forest=c("brown", "green", "darkgreen"), col_beetle=c("white", "blue"),  regrowth=1, sleep=0.3, K=10, young_forest = 3, beetle_reproduction=0.7, write_out = TRUE)
 
-### Read in simulation results from folder "temp"
-res <- load_results()
+
+
 ```
+Figure 1: Simulation with plot_flag = TRUE.
+
+Plot only the forest map:
+```{r, echo=TRUE,  eval=TRUE, echo=TRUE, include=TRUE, results='hide', fig.keep='last', fig.show='asis', strip.white=TRUE, fig.align='center'}
+res <- load_results()
+col_forest=c("brown", "green", "darkgreen")
+image(as.matrix(res$forests[[7]]), col=col_forest, asp=1, axes=F) 
+
+```
+Figure 2: Animated beetle output.
+
+# Animation as GIF
+
 Create a GIF file to visulize the simulation output.
 
-```{r}
-### Create GIF
+```{r create_gif, eval=FALSE, echo=TRUE, include=TRUE}
 library(animation)
 
 ani.options(ani.width=3*480, ani.height=480) 
-saveGIF(beetles_simulate(n_steps=40, world_size=150, dispPar=20, plot_flag=TRUE, col_forest=c("brown", "green", "darkgreen"), col_beetle=c("white", "blue"),  regrowth=1, sleep=0, K=10, young_forest = 3), movie.name = "vignettes/animation.gif", img.name = "Rplot", convert = "convert", clean = TRUE)
+saveGIF(beetles_simulate(n_steps=40, world_size=150, dispPar=20, plot_flag=TRUE, col_forest=c("brown", "green", "darkgreen"), col_beetle=c("white", "blue"),  regrowth=1, sleep=0, K=10, young_forest = 3), movie.name = "animation.gif", img.name = "Rplot", convert = "convert", clean = TRUE)
 
 ```
 
-Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+![Figure 3: Animated beetle output.](animation.gif)
 
-When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+
+
+

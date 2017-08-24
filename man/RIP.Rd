@@ -57,6 +57,7 @@ matplot(1:length(res), pops, type="l", col=mycols, lwd=2, xlab="Zeitschritte", y
 
 # saveGIF(RIP(n=100, timesteps=100, sleep=0, mycol=mycols, image=TRUE) , movie.name = "animation.gif", img.name = "Rplot", convert = "convert",  interval = 0.6)
 # file.copy("/tmp/RtmpVqjsL1/animation.gif", ".../rip4.gif")
+}
 
 \keyword{ ~kwd1 }% use one of  RShowDoc("KEYWORDS")
 \keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

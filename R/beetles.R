@@ -96,8 +96,28 @@ load_results <- function(dir="temp", start=1, stop=NULL) {
   worlds <- lapply(start:stop, function(t) read.table(paste0(dir, "/world_", t, ".txt")))
   forests <- lapply(start:stop, function(t) read.table(paste0(dir, "/forest_", t, ".txt")))
   pops <- read.table(paste0(dir, "/population.txt"))
-  list(worlds, forests, pops)
+  list(worlds=worlds, forests=forests, pops=pops)
 }
 
 
+plot_animation <- function(res, output="forests", colors=c("red", "green", "blue"), young_forest=3){
+  n_steps <- 1:length(res[[1]])
+  ### NOT RUN
+  for(i in 1:n_steps){
+  if(output== "forests") {
+      forest_fig <- res[[output]]
+      forest_fig[forest_fig[] <= young_forest & forest_fig[] > 0] <- 1
+      forest_fig[forest_fig[] > young_forest] <- 2
+      image(forest_fig, col=colors[1+as.numeric(names(table(forest_fig)))], main=paste0("Time step = ", t), asp=1, axes=F)
 
+  } else {
+    if (output== "worlds") {
+      image(world, col=colors, asp=1, axes=F)
+    } else {
+      matplot(x=matrix(1:n_steps, nrow=nrow(pops), ncol=2), y=pops, ylim=c(0,1), col=c(col_beetle[2], col_forest[2]), type="l", lty=1, lwd=2, xlab="Time", ylab="Population")
+      }
+  }
+   Sys.sleep(0.3) 
+  }
+  
+}
