@@ -19,20 +19,20 @@ The system is reduced to the following processes:
 
 - Initialization: Forest cover, beetles in the center
 - Beetle dispersal: Exponential dispersal kernel
-- Beetle reproduction: 
-- Beetle death: just at dispersal; full cells, non-eadable forest cells (young forest, empty cells, outside of the world)
+- Beetle reproduction: Just a multiplication.
+- Beetle death: Just at dispersal; full cells; non-eadable forest cells (young forest, empty cells, outside of the world)
 - Forest death by being eaten
 - Forest regrowth
 
 # Run the model
 
-To run the model some function arguments need to be specified. The number of time stept to be simulated (n_time) can be interpreted number of years to be simulated. 
+To run the model some function arguments need to be specified. The number of time steps to be simulated (n_time) can be interpreted number of years to be simulated. The size of the world needs to be selected as large enought to see the pattern but small enough for your computer. Function argument world_size is the edge length of the world. Other foret
 
-```{r Simulate, eval=TRUE, echo=TRUE, include=TRUE, results='hide', fig.keep='last', fig.show='asis', strip.white=TRUE, fig.align='center', fig.width=100, fig.height=40}
+
+
+```{r Simulate, eval=TRUE, echo=TRUE, include=TRUE, results='hide', fig.keep='last', fig.show='asis', strip.white=TRUE, fig.align='center', fig.width=7, fig.height=4}
 library(pets)
 beetles_simulate(n_steps=10, world_size=100, dispPar=20, plot_flag=TRUE, col_forest=c("brown", "green", "darkgreen"), col_beetle=c("white", "blue"),  regrowth=1, sleep=0.3, K=10, young_forest = 3, beetle_reproduction=0.7, write_out = TRUE)
-
-
 
 ```
 Figure 1: Simulation with plot_flag = TRUE.
