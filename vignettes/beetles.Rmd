@@ -1,10 +1,10 @@
 ---
 ---
-title: "bettles"
+title: "beetles"
 author: "Klara Dolos"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteIndexEntry{beetles}
   %\VignetteEngine{knitr::rmarkdown}
   \usepackage[utf8]{inputenc}
 ---
