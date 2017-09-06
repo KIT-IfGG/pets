@@ -33,7 +33,7 @@ To run the model some function arguments need to be specified. The number of tim
 
 Forest parameters are the age until a forest stand is considered to be young and thus unsusceptible to beetles (young_forest) and he time until regrowth starts (regrowth).
 
-Beetle parameters are the carrying capacity of a cell (K) and the parameter for the exponential dispersal kernel (dispPar). How strong beetles reproduce can also be adjusted (beetle_reproduction).
+Beetle parameters are the carrying capacity of a cell (K) and the rate parameter for the exponential dispersal kernel (dispPar). How strong beetles reproduce can also be adjusted (beetle_reproduction).
 
 Other function arguments help to plot the output directly, set colors and determin if the output should be saved.
 
