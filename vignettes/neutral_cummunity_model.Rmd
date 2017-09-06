@@ -1,0 +1,40 @@
+---
+title: "Neutral community model (NCM)"
+author: "Klara Dolos"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{NCM}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+# Model description
+## The system
+
+## States
+the number of beetles is recorded. Each time step a new set of states is created.
+
+## Processes
+
+The system is reduced to the following processes...
+
+
+# Run the model
+
+To run the model some function arguments need to be specified. 
+
+```{r Simulate, eval=TRUE, echo=TRUE, include=TRUE, results='hide', fig.keep='last', fig.show='asis', strip.white=TRUE, fig.align='center', fig.width=7, fig.height=4}
+library(pets)
+neutral_community_model(nspecies=8, gridsize=20, time=100, pdf=FALSE, plotpop=TRUE, sleep=0)
+
+```
+Figure 1: Simulation of population dynamics.
+
+
+```{r Simulate2, eval=TRUE, echo=TRUE, include=TRUE, results='hide', fig.keep='last', fig.show='asis', strip.white=TRUE, fig.align='center', fig.width=7, fig.height=4}
+
+neutral_community_model_density(nspecies=8, gridsize=20, time=100)
+
+```
+Figure 2: Simulation of population dynamics with density dependend reproduction.
+
