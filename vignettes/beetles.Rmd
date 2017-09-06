@@ -1,7 +1,9 @@
 ---
 title: "Pet model beetles"
 output:
-  html_document: default
+  html_document:
+    toc: yes
+    toc_depth: 2
   html_notebook: default
   pdf_document: default
   word_document: default
@@ -9,26 +11,31 @@ output:
 
 # Model description
 ## The system
-This is a pet model on a bark beetle population feeding on trees. It could be a bark beetly proliferation with on beetle generation each year and forest regrowht. Only trees older than a certain age are susceptible for bark beetles, thus yound forest is immune.
+This is a pet model on a bark beetle population feeding on trees. It is be a bark beetly proliferation with one beetle generation each year and forest regrowth. Only trees older than a certain age are susceptible for bark beetles, thus young forest is "immune".
 
 ## States
-The world is represented as a grid of cells with possible status: forest, yound forest and no-forest. For each cell the number of beetles is recorded.
+The world is represented as a grid of cells with possible status: forest, young forest and no-forest. For each cell the number of beetles is recorded. Each time step a new set of states is created.
 
 ## Processes
+
 The system is reduced to the following processes:
 
 - Initialization: Forest cover, beetles in the center
 - Beetle dispersal: Exponential dispersal kernel
-- Beetle reproduction: Just a multiplication.
-- Beetle death: Just at dispersal; full cells; non-eadable forest cells (young forest, empty cells, outside of the world)
+- Beetle reproduction: Just a multiplication
+- Beetle death: at dispersal; immigration to overcrowded cells; non-eadable forest cells (young forest, no-forest, outside of the world)
 - Forest death by being eaten
 - Forest regrowth
 
 # Run the model
 
-To run the model some function arguments need to be specified. The number of time steps to be simulated (n_time) can be interpreted number of years to be simulated. The size of the world needs to be selected as large enought to see the pattern but small enough for your computer. Function argument world_size is the edge length of the world. Other foret
+To run the model some function arguments need to be specified. The number of time steps to be simulated (n_time) is thenumber of years to be simulated. The size of the world needs to be chosen large enough to see the pattern but small enough for your computer. Function argument world_size is the edge length of the world.
 
+Forest parameters are the age until a forest stand is considered to be young and thus unsusceptible to beetles (young_forest) and he time until regrowth starts (regrowth).
 
+Beetle parameters are the carrying capacity of a cell (K) and the parameter for the exponential dispersal kernel (dispPar). How strong beetles reproduce can also be adjusted (beetle_reproduction).
+
+Other function arguments help to plot the output directly, set colors and determin if the output should be saved.
 
 ```{r Simulate, eval=TRUE, echo=TRUE, include=TRUE, results='hide', fig.keep='last', fig.show='asis', strip.white=TRUE, fig.align='center', fig.width=7, fig.height=4}
 library(pets)
@@ -37,16 +44,19 @@ beetles_simulate(n_steps=10, world_size=100, dispPar=20, plot_flag=TRUE, col_for
 ```
 Figure 1: Simulation with plot_flag = TRUE.
 
-Plot only the forest map:
+## Plot maps
+
+The simulation output can be plotted also individually by time step and map of interest. If you want to plot only the forest map, you can use the following code, which loads the simulation results first:
 ```{r, echo=TRUE,  eval=TRUE, echo=TRUE, include=TRUE, results='hide', fig.keep='last', fig.show='asis', strip.white=TRUE, fig.align='center'}
 res <- load_results()
 col_forest=c("brown", "green", "darkgreen")
 image(as.matrix(res$forests[[7]]), col=col_forest, asp=1, axes=F) 
+legend(0,1, legend=c("no forest", "young forest", "susceptible forest"), col=col_forest,  pch=16, pt.cex = 1.2)
 
 ```
-Figure 2: Animated beetle output.
+Figure 2: Forest map for time step 7. Brown: no-forest, green: yound forest, dark green: susceptible forest.
 
-# Animation as GIF
+## Animation as GIF
 
 Create a GIF file to visulize the simulation output.
 
@@ -60,6 +70,17 @@ saveGIF(beetles_simulate(n_steps=40, world_size=150, dispPar=20, plot_flag=TRUE,
 
 ![Figure 3: Animated beetle output.](animation.gif)
 
+# Sensitivity analysis
+
+The model behaviour can be assessed by applying a sensitivity analysis. This is a common method to assess the influence of parameters on the simulation output, just to know their relative importance, but also to see the ecological effect, e.g. on survival probability of the population over 100 years, of the parameters
+
+## Dispersal
+
+## Carrying capacity
+
+## Young forest
+
+## Regrowth
 
 
 
