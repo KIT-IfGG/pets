@@ -20,7 +20,7 @@ beetles_simulate <- function(n_steps=10, world_size=100, dispPar=20, plot_flag=T
       forest_fig <- forest
       forest_fig[forest_fig[] <= young_forest & forest_fig[] > 0] <- 1
       forest_fig[forest_fig[] > young_forest] <- 2
-      par(mfrow=c(1,3), cex=1.2, mar=c(1,1,1,1), oma=c(4,4,4,4))
+      par(mfrow=c(1,3), cex=1.2, mar=c(1,1,1,1), oma=c(2,2,2,2))
       image(world, col=col_beetle, asp=1, axes=F) ### plot world (or forest)
       image(forest_fig, col=col_forest[1+as.numeric(names(table(forest_fig)))], main=paste0("Time step = ", t), asp=1, axes=F)
       par(mar=c(1,4,1,1))
