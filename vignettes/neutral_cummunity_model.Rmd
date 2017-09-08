@@ -9,19 +9,21 @@ vignette: >
 ---
 
 # Model description
-## The system
+## The system: The neutral community model of Stephen Hubbell.
+First of all I'd likte to thank Duncan Golicher for his R code, which I used and modified fo rthis model ([Duncan Golicher’s weblog](http://duncanjg.wordpress.com/2008/03/07/a-simple-illustration-of-an-ecological-lottery-model-in-r/)). 
+
+ “The theory treats organisms in a community as essentially identical in their per capita probabilities of giving birth, dying, migrating, and speciating. This neutrality is defined at the individual level, not the species level. All that is required is that all individuals of every species obey exactly the same rules of ecological engagement. So, for example, if all individuals and species enjoy a frequency-dependent advantage in per capita birth rate when rare, and if this per capita advantage is exactly the same for each and every individual of a species of equivalent abundance then such a theory would qualify as a bona fide neutral theory by the present definition.”
+
 
 ## States
-the number of beetles is recorded. Each time step a new set of states is created.
+Each cell is occupied by one to the n species.
 
 ## Processes
-
-The system is reduced to the following processes...
-
+The system is reduced to the process of colonization of cells by one ot the species. The probabiity of a species to colonize a cell is equal to its prevalence.
 
 # Run the model
 
-To run the model some function arguments need to be specified. 
+To run the model some function arguments need to be specified. The number of species (nspecies) needs to be specified and needs to fit the size of the world (gridsize). The number of time steps to be simulated (time) will infulence the chance to ses species going extinct.   
 
 ```{r Simulate, eval=TRUE, echo=TRUE, include=TRUE, results='hide', fig.keep='last', fig.show='asis', strip.white=TRUE, fig.align='center', fig.width=7, fig.height=4}
 library(pets)
@@ -33,7 +35,7 @@ Figure 1: Simulation of population dynamics.
 
 ```{r Simulate2, eval=TRUE, echo=TRUE, include=TRUE, results='hide', fig.keep='last', fig.show='asis', strip.white=TRUE, fig.align='center', fig.width=7, fig.height=4}
 
-neutral_community_model_density(nspecies=8, gridsize=20, time=100)
+neutral_community_model(nspecies=8, gridsize=20, time=100, pdf=FALSE, plotpop=TRUE, sleep=0, density=TRUE)
 
 ```
 Figure 2: Simulation of population dynamics with density dependend reproduction.

@@ -5,35 +5,50 @@
 neutral_community_model
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+The neutral community model of Stephen Hubbell.
 }
 \usage{
-neutral_community_model(x)
+neutral_community_model(nspecies=8, gridsize=20, time=100, pdf=FALSE, plotpop=TRUE, sleep=0)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{x}{
-%%     ~~Describe \code{x} here~~
+  \item{nspecies}{
+Integer. Number of species to be simulated.
 }
+  \item{gridsize}{
+Integer. Edge lenth of the grid.
+}
+
+  \item{time}{
+Time steps to be simulated.
+}
+  \item{pdf}{
+If TRUE, a pdf file will be produced for each time step.
+}
+
+  \item{plotpop}{
+If TRUE, a plot of the population dynamics over time will be provided in the end of the simulation.
+}
+
+  \item{sleep}{
+Value for function Sys.sleep().
+}
+
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
+Matrix with population sizes for each time step.
 }
 \references{
 %% ~put references to the literature/web site here ~
 }
 \author{
-%%  ~~who you are~~
+Klara Dolos
 }
 \note{
-%%  ~~further notes~~
+[Duncan Golicher’s weblog](http://duncanjg.wordpress.com/2008/03/07/a-simple-illustration-of-an-ecological-lottery-model-in-r/)
 }
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
@@ -41,15 +56,16 @@ neutral_community_model(x)
 \seealso{
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
-\examples{neutral_community_model(nspecies=3, gridsize=20, time=100, pdf=FALSE, plotpop=TRUE, sleep=0.3)
+\examples{
 
-neutral_community_model_density(nspecies=3, gridsize=20, time=100)
+mat <- neutral_community_model(nspecies=8, gridsize=20, time=10, pdf=FALSE, plotpop=TRUE, sleep=0.3, density=FALSE)
 
-library(animation)
-saveGIF(neutral_community_model(nspecies=3, gridsize=20, time=100, pdf=FALSE, plotpop=FALSE, sleep=0.3), movie.name = "animation.gif", img.name = "Rplot", convert = "convert", clean = TRUE)
+mat_dens <- neutral_community_model(nspecies=8, gridsize=20, time=10, pdf=FALSE, plotpop=TRUE, sleep=0.3, density=TRUE)
+
+par(mfrow=c(2,1), mar=c(0,0,0,0), oma=c(5,4,1,1))
+matplot(mat, type="l", axes=F, ylim=c(0, max(c(mat), mat_dens)))
+axis(2); box()
+matplot(mat_dens, type="l", ylim=c(0, max(c(mat), mat_dens)))
 
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }% use one of  RShowDoc("KEYWORDS")
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+
