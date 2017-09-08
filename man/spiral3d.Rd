@@ -8,11 +8,20 @@ Seashell cone in 3d
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-spiral3d(x)
+spiral3d(phi, R=1, a=1, b=1)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{x}{
+  \item{phi}{
+%%     ~~Describe \code{x} here~~
+}
+\item{R}{
+%%     ~~Describe \code{x} here~~
+}
+\item{a}{
+%%     ~~Describe \code{x} here~~
+}
+\item{b}{
 %%     ~~Describe \code{x} here~~
 }
 }
@@ -30,16 +39,11 @@ spiral3d(x)
 %% ~put references to the literature/web site here ~
 }
 \author{
-%%  ~~who you are~~
+Klara Dolos
 }
-\note{
-%%  ~~further notes~~
-}
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+\code{\link{seashell}}
 }
 \examples{
 phi <- seq(0,100, len=1000)
@@ -54,5 +58,4 @@ par(mfrow=c(1,2), mar=c(4,4,4,1))
 plot(spiral$x, spiral$y, type="l", asp=1, main="2D Spirale", xlab="x", ylab="y", col="steelblue4", lwd=1.5)
 scatterplot3d(spiral$x, spiral$y, spiral$z, type="l", asp=1, main="3D Schneckenhaus", xlab="x", ylab="y", zlab="z", color="steelblue4", lwd=1.5)
 }
-\keyword{ ~kwd1 }% use one of  RShowDoc("KEYWORDS")
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+

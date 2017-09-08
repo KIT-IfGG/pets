@@ -8,42 +8,43 @@ Seashell 1D
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-seashell(x)
+seashell(ncells=20, timesteps=100, init.prob=0.4)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{x}{
-%%     ~~Describe \code{x} here~~
+  \item{ncells}{
+Number of cells.
+}
+
+ \item{timesteps}{
+Iterations to be simulated
+}
+
+ \item{init.prob}{
+Probability at initialization that a cell is occupied.
 }
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
+Matrix with each row representing the world for different iterations.
 }
 \references{
-%% ~put references to the literature/web site here ~
+Coombes, S (2009)
 }
 \author{
-%%  ~~who you are~~
-}
-\note{
-%%  ~~further notes~~
+Klara Dolos
 }
 
-%% ~Make other sections like Warning with \section{Warning }{....} ~
+
 
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+
+\code{\link{spiral3d}}
 }
 \examples{
 ncells=20; timesteps=100; init.prob=0.4
-
 m <- seashell(ncells=100, timesteps=150, init.prob=0.1)
 image(m, col=c("white", "darkgreen"))
 

@@ -60,7 +60,7 @@ Figure 2: Forest map for time step 7. Brown: no-forest, green: yound forest, dar
 Create a GIF file to visulize the simulation output.
 
 ```{r create_gif, eval=FALSE, echo=TRUE, include=TRUE}
-library(animation)
+require(animation)
 
 ani.options(ani.width=3*230, ani.height=230) 
 saveGIF(beetles_simulate(n_steps=40, world_size=150, dispPar=20, plot_flag=TRUE, col_forest=c("brown", "green", "darkgreen"), col_beetle=c("white", "blue"),  regrowth=1, sleep=0, K=10, young_forest = 3), movie.name = "vignettes/animation.gif", img.name = "Rplot", convert = "convert", clean = TRUE)
