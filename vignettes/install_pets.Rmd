@@ -1,0 +1,42 @@
+---
+title: "Pets: Get started!"
+author: "Klara Dolos"
+date: "September 21, 2017"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{get_started}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Install the package
+The package code can be found on github at the account of the Institute of Geography and Geoecology (KIT): https://github.com/KIT-IfGG
+
+## Install from github
+
+The easiest way to download and install an R-package that is hosted on Github is to use the function install_git of the package devtools.
+1. Install devtools, if not done yet
+2. Get link to the repository (green button on the github page)
+3. Use function install_git with the right url
+
+This works for all R-packages hosted in public repositories on Github!
+
+
+```{r install_github, echo=TRUE}
+# install.packages("devtools")
+library(devtools)
+install_github("KIT-IfGG/pets", auth_token = "258efa53825dac39ad132491a9900dcbfa74cd71",  build_vignettes = TRUE)
+
+```
+
+## Clone and build
+You can clone the respository (e.g. using RStudio/projects/from version control...) and built the package yourself. This makes sense if you like to change code or add functions to the R-package and fix bugs. There are plenty of tutorials how to work with version control and especially git/RStudio.
+
+# Report issues
+ Certainly there will be issues and questions in using the package functions. You can use the issues tool of the Github repository to get answers and solutions.
+ 
