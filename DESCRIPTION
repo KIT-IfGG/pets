@@ -8,3 +8,6 @@ Description: Some of my pet simulation models
 License: 
 Encoding: UTF-8
 LazyData: true
+Suggests: knitr,
+    rmarkdown
+VignetteBuilder: knitr

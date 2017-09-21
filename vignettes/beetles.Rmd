@@ -1,21 +1,21 @@
 ---
-title: "Beetles"
+title: "beetles"
 author: "Klara Dolos"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{beetles}
+  %\VignetteIndexEntry{pets beetles}
   %\VignetteEngine{knitr::rmarkdown}
-  \usepackage[utf8]{inputenc}
+  %\VignetteEncoding{UTF-8}
 ---
 
-# Model description
-## The system
+## Model description
+### The system
 This is a pet model on a bark beetle population feeding on trees. It is be a bark beetly proliferation with one beetle generation each year and forest regrowth. Only trees older than a certain age are susceptible for bark beetles, thus young forest is "immune".
 
-## States
+### States
 The world is represented as a grid of cells with possible status: forest, young forest and no-forest. For each cell the number of beetles is recorded. Each time step a new set of states is created.
 
-## Processes
+### Processes
 
 The system is reduced to the following processes:
 
@@ -26,7 +26,7 @@ The system is reduced to the following processes:
 - Forest death by being eaten
 - Forest regrowth
 
-# Run the model
+## Run the model
 
 To run the model some function arguments need to be specified. The number of time steps to be simulated (n_time) is thenumber of years to be simulated. The size of the world needs to be chosen large enough to see the pattern but small enough for your computer. Function argument world_size is the edge length of the world.
 
@@ -55,7 +55,7 @@ legend(0,1, legend=c("no forest", "young forest", "susceptible forest"), col=col
 ```
 Figure 2: Forest map for time step 7. Brown: no-forest, green: yound forest, dark green: susceptible forest.
 
-## Animation as GIF
+### Animation as GIF
 
 Create a GIF file to visulize the simulation output.
 
@@ -69,17 +69,17 @@ saveGIF(beetles_simulate(n_steps=40, world_size=150, dispPar=20, plot_flag=TRUE,
 
 ![Figure 3: Animated beetle output.](animation.gif)
 
-# Sensitivity analysis
+## Sensitivity analysis
 
 The model behaviour can be assessed by applying a sensitivity analysis. This is a common method to assess the influence of parameters on the simulation output, just to know their relative importance, but also to see the ecological effect, e.g. on survival probability of the population over 100 years, of the parameters
 
-## Dispersal
+### Dispersal
 
-## Carrying capacity
+### Carrying capacity
 
-## Young forest
+### Young forest
 
-## Regrowth
+### Regrowth
 
 
 
