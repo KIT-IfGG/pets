@@ -24,7 +24,7 @@ There are several options how to install a package from a repostitory!
 The easiest way to download and install an R-package that is hosted on Github is to use the function install_git of the package devtools.
 1. Install devtools, if not done yet
 2. Get link to the repository (green button on the github page)
-3. Use function install_git with the right url
+3. Use function install_github with the right url
 
 This works for all R-packages hosted in public repositories on Github!
 
