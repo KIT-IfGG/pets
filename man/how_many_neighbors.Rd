@@ -2,7 +2,7 @@
 \alias{how_many_neighbors}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-%%  ~~function to do ... ~~
+How many neighbors
 }
 \description{
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
