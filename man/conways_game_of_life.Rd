@@ -2,7 +2,7 @@
 \alias{conways_game_of_life}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-%%  ~~function to do ... ~~
+Conways game of life
 }
 \description{
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
