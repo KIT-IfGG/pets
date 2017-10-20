@@ -47,9 +47,7 @@ how_many_neighbors(x)
 ##--	or do  help(data=index)  for the standard data sets.
 
 ## The function is currently defined as
-function (x) 
-{
-  }
+function (x) {}
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
