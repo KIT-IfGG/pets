@@ -48,7 +48,7 @@ Matrix with population sizes for each time step.
 Klara Dolos
 }
 \note{
-[Duncan Golicher’s weblog](http://duncanjg.wordpress.com/2008/03/07/a-simple-illustration-of-an-ecological-lottery-model-in-r/)
+[Duncan Golicher's weblog](http://duncanjg.wordpress.com/2008/03/07/a-simple-illustration-of-an-ecological-lottery-model-in-r/)
 }
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
