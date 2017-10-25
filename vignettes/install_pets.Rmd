@@ -32,7 +32,7 @@ This works for all R-packages hosted in public repositories on Github!
 ```{r install_github, echo=TRUE, message=FALSE, warning=FALSE, results="hide"}
 # install.packages("devtools")
 library(devtools)
-install_github("KIT-IfGG/pets", auth_token = "258efa53825dac39ad132491a9900dcbfa74cd71",  build_vignettes = TRUE)
+install_github("KIT-IfGG/pets",  build_vignettes = FALSE)
 
 ```
 Note that auth_token could be outdated and contact the repository owner for access.
