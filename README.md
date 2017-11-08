@@ -61,7 +61,5 @@ Certainly there will be issues and questions in using the package functions. You
  
 
 
-Refer to pets/vignettes/install_pets.Rmd
-
 
 
