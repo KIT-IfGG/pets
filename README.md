@@ -58,4 +58,3 @@ A tar.gz or zip file might be provided. You can use this file and install the pa
 
 # Report issues
 Certainly there will be issues and questions in using the package functions. You can use the issues tool of the Github repository to get answers and solutions. You need to create a github account.
- 
