@@ -5,7 +5,7 @@ Version: 0.1.0
 Author: Klara Dolos
 Maintainer: Klara Dolos <klara.dolos@kit.edu>
 Description: Some of my pet simulation models
-License: 
+License: cc
 Encoding: UTF-8
 LazyData: true
 Suggests: knitr,
