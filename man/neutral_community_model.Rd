@@ -8,7 +8,7 @@ neutral_community_model
 The neutral community model of Stephen Hubbell.
 }
 \usage{
-neutral_community_model(nspecies=8, gridsize=20, time=100, pdf=FALSE, plotpop=TRUE, sleep=0)
+neutral_community_model(nspecies=8, gridsize=20, time=100, pdf=FALSE, plotpop=TRUE, sleep=0, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -33,6 +33,14 @@ If TRUE, a plot of the population dynamics over time will be provided in the end
   \item{sleep}{
 Value for function Sys.sleep().
 }
+
+  \item{density}{
+Density dependen reproduction TRUE/FALSE
+}
+
+  \item{liveplot}{
+If TRUE, world is plotted during the simulation. Default is TRUE.
+
 
 }
 \details{
