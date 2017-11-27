@@ -1,7 +1,7 @@
 library(spdep)
 library(animation)
-
-RIP <- function(n=10, timesteps=20, sleep=0.1, mycols=c("blue", "yellow", "red"), image=TRUE) {
+rip_cols <- c("blue", "yellow", "red")
+RIP <- function(n=10, timesteps=20, sleep=0.1, cols=c("blue", "yellow", "red"), image=TRUE) {
   if(!image) res <- vector("list", length=timesteps)
   m <- matrix(sample(1:3, n^2, replace=TRUE), nrow=n)
   ngrid <- spdep::cell2nb(nrow=n, ncol=n, type="queen", torus=TRUE)

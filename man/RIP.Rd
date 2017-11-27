@@ -8,18 +8,38 @@ RIP
 Three types of bacteria live in a petri dish. R has the highest reproduction rate followed by I and P. I is immune against the poison produced by P.
 }
 \usage{
-RIP(n=100, timesteps=50, sleep=0.1, mycol=mycols, image=TRUE) 
+RIP(n=100, timesteps=50, sleep=0.1, col=mycols, image=TRUE) 
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{x}{
-%%     ~~Describe \code{x} here~~
+  \item{n}{
+Grid size
+}
+ \item{timesteps}{
+Number of iterations
+}
+ \item{sleep}{
+Argument for function Sys.sleep()
+}
+ \item{col}{
+Color vector
+}
+ \item{image}{
+Plot image during simulation TRUE/FALSE
 }
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
 }
 \value{
+List of matrices with three species coded with 1, 2 and 3.
+
+1 | R, high reproduction
+
+2 | I, immune against poisson, but lower reproduction than R
+
+3 | P, poissoness species, but less reposduction than the other two
+
 %%  ~Describe the value returned
 %%  If it is a LIST, use
 %%  \item{comp1 }{Description of 'comp1'}
