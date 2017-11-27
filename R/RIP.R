@@ -1,5 +1,5 @@
-library(spdep)
-library(animation)
+#library(spdep)
+#library(animation)
 
 RIP <- function(n=10, timesteps=20, sleep=0.1, cols=c("blue", "yellow", "red"), image=TRUE) {
   if(!image) res <- vector("list", length=timesteps)
