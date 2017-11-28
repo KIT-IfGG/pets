@@ -84,7 +84,7 @@ beetles_simulate <- function(n_steps=10, world_size=100, dispPar=20, plot_flag=T
   if(write_out) {
     write.table(pops, paste0("temp/population.txt"))
   } else {
-    list(worlds, forests, pops)
+    list(worlds=worlds, forests=forests, pops=pops)
     
   }
 }
