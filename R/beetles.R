@@ -100,24 +100,26 @@ load_results <- function(dir="temp", start=1, stop=NULL) {
 }
 
 
-plot_animation <- function(res, output="forests", colors=c("red", "green", "blue"), young_forest=3){
-  n_steps <- 1:length(res[[1]])
+plot_maps <- function(beetles, output="forests", col_beetle=c("white", "blue"), col_forest=c("brown", "lightgreen", "green"), young_forest=3, sleep=0){
+  n_steps <- 1:length(beetles[[1]])
   ### NOT RUN
   for(i in 1:n_steps){
-  if(output== "forests") {
-      forest_fig <- res[[output]]
+  if(output == "forests") {
+      colors <- col_forest
+      forest_fig <- beetles[[output]]
       forest_fig[forest_fig[] <= young_forest & forest_fig[] > 0] <- 1
       forest_fig[forest_fig[] > young_forest] <- 2
       image(forest_fig, col=colors[1+as.numeric(names(table(forest_fig)))], main=paste0("Time step = ", t), asp=1, axes=F)
 
   } else {
-    if (output== "worlds") {
+    if (output == "worlds") {
+      colors <- col_beetle
       image(world, col=colors, asp=1, axes=F)
     } else {
       matplot(x=matrix(1:n_steps, nrow=nrow(pops), ncol=2), y=pops, ylim=c(0,1), col=c(col_beetle[2], col_forest[2]), type="l", lty=1, lwd=2, xlab="Time", ylab="Population")
       }
   }
-   Sys.sleep(0.3) 
+   Sys.sleep(sleep) 
   }
   
 }
