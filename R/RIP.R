@@ -18,7 +18,7 @@ RIP <- function(n=10, timesteps=20, sleep=0.1, cols=c("blue", "yellow", "red"), 
     }
     if (image==TRUE) {
       pops <- c(sum(m[]==1), sum(m[]==2), sum(m[]==3))
-      image(m, col=mycols[pops != 0], main=t)
+      image(m, col=cols[pops != 0], main=t)
       Sys.sleep(sleep)
       } else {
         res[[t]] <- m
